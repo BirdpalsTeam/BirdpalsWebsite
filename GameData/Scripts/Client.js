@@ -1,51 +1,57 @@
 var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
 
-class Room
+class GameObject
 {
-
-	constructor(img, x, y, width, height)
-	{
+	constructor(img, x, y, width, height, originX, originY){
 		this.img = img;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.originX = originX;
+		this.originY = originY;
 	}
 
 	draw(){
-		ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+		ctx.drawImage(this.img, this.x - this.originX, this.y - this.originY, this.width, this.height);
 	}
-
 }
 
-class Character
+class Room extends GameObject
+{
+
+	constructor(img, x, y, width, height, originX, originY)
+	{
+		super(img, x, y, width, height, originX, originY);
+	}
+	
+}
+
+class Character extends GameObject
 {
 	
-	constructor(img, x, y, width, height)
+	constructor(img, x, y, width, height, originX, originY)
 	{
-		this.img = img;
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
+		super(img, x, y, width, height, originX, originY);
 
 		this.velX = 0;
 		this.velY = 0;
 
 		this.destX = x;
 		this.destY = y;
+
+		this.clickPosX = this.x + this.width/2;
+		this.clickPosY = this.y + this.height - 5;
 	}
 
-	draw()
-	{
-		
-		ctx.drawImage(this.img, this.x - this.width/2, this.y - this.height + 10, this.width, this.height);
+	main(){
 
 		if((this.x >= this.destX-1 && this.x <= this.destX+1 && this.y >= this.destY-1 && this.y <= this.destY+1) == false){
 			this.x += this.velX;
 			this.y += this.velY;
 		}
+
 	}
 
 	move(destX, destY){
@@ -70,15 +76,24 @@ charImg.src = "GameData/Sprites/bluebird.png";
 var roomImg = new Image();
 roomImg.src = "GameData/Sprites/room1.png"
 
-var room = new Room(roomImg, 0, 0, canvas.width, canvas.height);
-var char = new Character(charImg, 40, 40, 62, 72);
+var room = new Room(roomImg, 0, 0, canvas.width, canvas.height, 0, 0);
+var char = new Character(charImg, 40, 40, 62, 72, 31, 67);
+
+var dummy = new GameObject(charImg, 100, 100, 40, 40, 20, 20);
+
+var objectsInScene = [room, char, dummy];
 
 function main(){
 	
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
-	room.draw();
-	char.draw();
+	objectsInScene.sort(function(a, b){return a.y - b.y});
+
+	for(let i = 0; i < objectsInScene.length; i++){
+		objectsInScene[i].draw();
+	}
+
+	char.main();
 
 }
 
@@ -97,4 +112,4 @@ function getMousePos(canvas, e) {
     console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
   }, false);
 
-setInterval(main, 10)
+setInterval(main, 5);
