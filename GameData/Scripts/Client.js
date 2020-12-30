@@ -64,7 +64,7 @@ class Character extends GameObject {
 
     let angle = Math.atan2(dy, dx);
 
-    let speed = 1.5;
+    let speed = 1.25;
     this.velX = Math.cos(angle) * speed;
     this.velY = Math.sin(angle) * speed;
   }
