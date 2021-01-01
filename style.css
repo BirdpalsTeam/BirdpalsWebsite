@@ -18,12 +18,12 @@ canvas {
 
 input {
   width: 50%;
-  height: 50%;
   padding: 8px 8px;
   margin-top: 8px;
   box-sizing: border-box;
   border-radius: 4px;
   border: 2px solid #bfbfbf;
+  transition-duration: 0.2s;
 }
 
 button {
@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-  background-color: #c75b14;
-  border: 2px solid #c75b14;
-  transition-duration: 0.4s;
+  background-color: #e06818;
+  border: 2px solid#e06818;
+  transition-duration: 0.2s;
 }
