@@ -77,11 +77,9 @@ var roomImg = new Image();
 roomImg.src = "GameData/Sprites/room1.png";
 
 var room = new Room(roomImg, 0, 0, canvas.width, canvas.height, 0, 0);
-var char = new Character(charImg, 40, 40, 62, 72, 31, 67);
+var char = new Character(charImg, 409, 380, 62, 72, 31, 67);
 
-var dummy = new GameObject(charImg, 100, 100, 40, 40, 20, 20);
-
-var objectsInScene = [room, char, dummy];
+var objectsInScene = [room, char];
 
 function main() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);

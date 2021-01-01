@@ -13,6 +13,7 @@ canvas {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 4px;
 }
 
 input {
@@ -28,8 +29,16 @@ input {
 button {
   background-color: #f07018;
   color: white;
+  width: 4%;
   padding: 8px;
   text-align: center;
   border: 2px solid #f07018;
   border-radius: 4px;
+  outline: none;
+}
+
+button:hover {
+  background-color: #c75b14;
+  border: 2px solid #c75b14;
+  transition-duration: 0.4s;
 }
