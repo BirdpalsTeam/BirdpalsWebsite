@@ -2,7 +2,19 @@ var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
 
 class GameObject {
-  constructor(img, x, y, width, height, originX, originY) {
+  constructor(
+    img,
+    x,
+    y,
+    width,
+    height,
+    originX,
+    originY,
+    sourceX,
+    sourceY,
+    sourceW,
+    sourceH
+  ) {
     this.img = img;
     this.x = x;
     this.y = y;
@@ -10,11 +22,20 @@ class GameObject {
     this.height = height;
     this.originX = originX;
     this.originY = originY;
+
+    this.sourceX = sourceX;
+    this.sourceY = sourceY;
+    this.sourceW = sourceW;
+    this.sourceH = sourceH;
   }
 
   draw() {
     ctx.drawImage(
       this.img,
+      this.sourceX,
+      this.sourceY,
+      this.sourceW,
+      this.sourceH,
       this.x - this.originX,
       this.y - this.originY,
       this.width,
@@ -24,14 +45,62 @@ class GameObject {
 }
 
 class Room extends GameObject {
-  constructor(img, x, y, width, height, originX, originY) {
-    super(img, x, y, width, height, originX, originY);
+  constructor(
+    img,
+    x,
+    y,
+    width,
+    height,
+    originX,
+    originY,
+    sourceX,
+    sourceY,
+    sourceW,
+    sourceH
+  ) {
+    super(
+      img,
+      x,
+      y,
+      width,
+      height,
+      originX,
+      originY,
+      sourceX,
+      sourceY,
+      sourceW,
+      sourceH
+    );
   }
 }
 
 class Character extends GameObject {
-  constructor(img, x, y, width, height, originX, originY) {
-    super(img, x, y, width, height, originX, originY);
+  constructor(
+    img,
+    x,
+    y,
+    width,
+    height,
+    originX,
+    originY,
+    sourceX,
+    sourceY,
+    sourceW,
+    sourceH
+  ) {
+    super(
+      img,
+      x,
+      y,
+      width,
+      height,
+      originX,
+      originY,
+      sourceX,
+      sourceY,
+      sourceW,
+      sourceH
+    );
 
     this.velX = 0;
     this.velY = 0;
@@ -76,8 +145,8 @@ charImg.src = "GameData/Sprites/bluebird.png";
 var roomImg = new Image();
 roomImg.src = "GameData/Sprites/room1.png";
 
-var room = new Room(roomImg, 0, 0, canvas.width, canvas.height, 0, 0);
-var char = new Character(charImg, 409, 380, 62, 72, 31, 67);
+var room = new Room(roomImg, 0, 0, 800, 500, 0, 0, 0, 0, 800, 500);
+var char = new Character(charImg, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172);
 
 var objectsInScene = [room, char];
 
