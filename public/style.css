@@ -1,0 +1,16 @@
+body {
+    background-image: url("Website Assets/backdrop.png");
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+h1{
+    text-align: center;
+}
+
+canvas{
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
