@@ -43,10 +43,12 @@ class GameObject {
       if(this.type === 2){
         ctx.fillStyle = "red";
         ctx.fillText("(NPC)", this.x - ctx.measureText(this.name).width/2 - 5, this.y + this.height/2.5);
+        ctx.fillStyle = "black";
+        ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2 + ctx.measureText("(NPC)").width - 3, this.y + this.height/2.5);
+      } else {
+        ctx.fillStyle = "black";
+        ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2, this.y + this.height/2.5);
       }
-      
-      ctx.fillStyle = "black";
-      ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2 + ctx.measureText("(NPC)").width - 3, this.y + this.height/2.5);
     }
   }
 }
