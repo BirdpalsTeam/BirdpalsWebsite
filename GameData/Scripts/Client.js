@@ -76,6 +76,38 @@ class Room extends GameObject {
   }
 }
 
+class RoomObject extends GameObject {
+  constructor(
+    img,
+    x,
+    y,
+    width,
+    height,
+    originX,
+    originY,
+    sourceX,
+    sourceY,
+    sourceW,
+    sourceH,
+    type
+  ) {
+    super(
+      img,
+      x,
+      y,
+      width,
+      height,
+      originX,
+      originY,
+      sourceX,
+      sourceY,
+      sourceW,
+      sourceH,
+      type
+    );
+  }
+}
+
 class Character extends GameObject {
   constructor(
     img,
@@ -216,11 +248,18 @@ hedgeImg.src = "GameData/Sprites/hedgehog.png";
 var roomImg = new Image();
 roomImg.src = "GameData/Sprites/room1.png";
 
-var room = new Room(roomImg, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0);
-var char = new Character(charImg, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1, "Bird");
-var hedge_npc = new NPC(hedgeImg, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "flines")
+var cakeImg = new Image();
+cakeImg.src = "GameData/Sprites/cake.png";
 
-var objectsInScene = [room, char];
+//OH GOD OH HECK THIS IS THE ROOM
+var room = new Room(roomImg, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0);
+var objs = new RoomObject(cakeImg, 498, 372, 192, 216, 96, 190, 0, 0, 192, 216, 3)
+
+//players and npcs lets go
+var char = new Character(charImg, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1, "Bird");
+var hedge_npc = new NPC(hedgeImg, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "flines");
+
+var objectsInScene = [room, char, objs];
 
 function main() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
