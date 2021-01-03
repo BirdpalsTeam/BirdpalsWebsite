@@ -248,25 +248,22 @@ class NPC extends GameObject {
 
 }
 
-var charImg = new Image();
-charImg.src = "GameData/Sprites/characters/bird_blue.png";
+var blueBird = new Image();
+blueBird.src = "GameData/Sprites/characters/bird_blue.png";
 
-var hedgeImg = new Image();
-hedgeImg.src = "GameData/Sprites/characters/hedgehog.png";
+var hedgeNPC = new Image();
+hedgeNPC.src = "GameData/Sprites/characters/hedgehog.png";
 
-var roomImg = new Image();
-roomImg.src = "GameData/Sprites/rooms/town_background.png";
-
-var cakeImg = new Image();
-cakeImg.src = "GameData/Sprites/rooms/town_objects.png";
+var townRoom = new Image();
+townRoom.src = "GameData/Sprites/rooms/town.png";
 
 //OH GOD OH HECK THIS IS THE ROOM
-var room = new Room(roomImg, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0); //0 in the end cuxz it is type 0. type 0 means room
-var objs = new RoomObject(cakeImg, 498, 372, 192, 216, 96, 190, 0, 0, 192, 216, 0) //same as above am i right
+var room = new Room(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0); //0 in the end cuxz it is type 0. type 0 means room
+var objs = new RoomObject(townRoom, 498, 372, 192, 216, 96, 190, 892, 0, 192, 216, 0) //same as above am i right
 
 //players and npcs lets go
-var char = new Character(charImg, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1, "Bird"); //1 before the string cuz it is type 1. type 1 means players, and players have names thats why it has a string, with "Bird" being the player's name
-var hedge_npc = new NPC(hedgeImg, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "flines"); //basically the same as above, except the type is 2. type 2 means NPCs
+var char = new Character(blueBird, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1, "Bird"); //1 before the string cuz it is type 1. type 1 means players, and players have names thats why it has a string, with "Bird" being the player's name
+var hedge_npc = new NPC(hedgeNPC, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "flines"); //basically the same as above, except the type is 2. type 2 means NPCs
 
 var objectsInScene = [room, char, hedge_npc, objs];
 
