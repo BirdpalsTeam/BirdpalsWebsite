@@ -42,11 +42,11 @@ class GameObject {
       
       if(this.type === 2){
         ctx.fillStyle = "red";
-        ctx.fillText("(NPC)", this.x - ctx.measureText(this.name).width/2 - 8, this.y + this.height/2.5);
+        ctx.fillText("(NPC)", this.x - ctx.measureText(this.name).width/2, this.y + this.height/2.5);
       }
       
       ctx.fillStyle = "black";
-      ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2, this.y + this.height/2.5);
+      ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2 + ctx.measureText("(NPC)").width, this.y + this.height/2.5);
     }
   }
 }
@@ -259,12 +259,12 @@ var cakeImg = new Image();
 cakeImg.src = "GameData/Sprites/rooms/town_objects.png";
 
 //OH GOD OH HECK THIS IS THE ROOM
-var room = new Room(roomImg, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0);
-var objs = new RoomObject(cakeImg, 498, 372, 192, 216, 96, 190, 0, 0, 192, 216, 3)
+var room = new Room(roomImg, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0); //0 in the end cuxz it is type 0. type 0 means room
+var objs = new RoomObject(cakeImg, 498, 372, 192, 216, 96, 190, 0, 0, 192, 216, 0) //same as above am i right
 
 //players and npcs lets go
-var char = new Character(charImg, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1, "Bird");
-var hedge_npc = new NPC(hedgeImg, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "flines");
+var char = new Character(charImg, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1, "Bird"); //1 before the string cuz it is type 1. type 1 means players, and players have names thats why it has a string, with "Bird" being the player's name
+var hedge_npc = new NPC(hedgeImg, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "flines"); //basically the same as above, except the type is 2. type 2 means NPCs
 
 var objectsInScene = [room, char, hedge_npc, objs];
 
