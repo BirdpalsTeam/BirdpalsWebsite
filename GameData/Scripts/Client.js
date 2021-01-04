@@ -160,6 +160,8 @@ class Character extends GameObject {
 
     this.clickPosX = this.x + this.width / 2;
     this.clickPosY = this.y + this.height - 5;
+
+    this.isMoving = false;
   }
 
   main() {
@@ -171,6 +173,9 @@ class Character extends GameObject {
     ) {
       this.x += this.velX;
       this.y += this.velY;
+      this.isMoving = true;
+    }else{
+        this.isMoving = false;
     }
   }
 
@@ -245,8 +250,35 @@ class NPC extends GameObject {
       name
     );
   }
-
 }
+
+class Camera{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+    
+    followX(){
+        let prevX = this.x;
+        this.x = char.x - canvas.width/2;
+
+        for(let i = 0; i < objectsInScene.length; i++){
+            objectsInScene[i].x = objectsInScene[i].x + (prevX - this.x);
+        }
+        char.destX = char.x;
+    }
+    followY(){
+        let prevY = this.y
+        this.y = char.y - canvas.height/2;
+
+        for(let i = 0; i < objectsInScene.length; i++){
+            objectsInScene[i].y = objectsInScene[i].y - (prevY - this.y);
+        }
+        char.destY = char.y;
+    }
+}
+
+var cam = new Camera(0, 0);
 
 var blueBird = new Image();
 blueBird.src = "GameData/Sprites/characters/bird_blue.png";
@@ -266,8 +298,10 @@ domeRoom.src = "GameData/Sprites/rooms/dome.png";
 var dome = new Room(domeRoom, 0, 0, 800, 500, 0, 0, 0, 0, 579, 365, 0);
 var domeObjects = [];
 
-var noObjectImg = new Image();
-noObjectImg.src = "GameData/Sprites/noObject.png"
+var forestRoom = new Image();
+forestRoom.src = "GameData/Sprites/rooms/forest.png";
+var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 776, 234);
+var forestObjects = [];
 
 //OH GOD OH HECK THIS IS THE ROOM
 var room = town; //0 in the end cuxz it is type 0. type 0 means room 
@@ -279,6 +313,8 @@ var char = new Character(blueBird, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1
 var objectsInScene = [char];
 
 function changeRoom(newRoom, objects, playerPosX, playerPosY){
+    cam = new Camera(0, 0);
+
     room = newRoom;
 
     char.x = playerPosX;
@@ -310,6 +346,17 @@ function main() {
   }
 
   char.main();
+
+  cameraFollowPlayer();
+}
+
+function cameraFollowPlayer(){
+    if(char.x > room.x + canvas.width/2 && char.x < room.x + room.width - canvas.width/2 && char.isMoving){
+        cam.followX();
+    }
+    if(char.y > room.y + canvas.height/2 && char.y < room.y + room.height - canvas.height/2 && char.isMoving){
+        cam.followY();
+    }
 }
 
 function getMousePos(canvas, e) {
@@ -332,3 +379,7 @@ canvas.addEventListener(
 );
 
 setInterval(main, 5);
+
+function printObjectsInScene(){
+    console.log(objectsInScene);
+}
