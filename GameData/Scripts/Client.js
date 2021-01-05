@@ -347,7 +347,7 @@ function main() {
   }
 
   char.main();
-  townFG.main();
+  townFG.draw();
 
   cameraFollowPlayer();
 }
