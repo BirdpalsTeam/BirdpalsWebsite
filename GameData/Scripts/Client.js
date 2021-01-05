@@ -305,7 +305,7 @@ var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 776, 234);
 var forestObjects = [];
 
 //OH GOD OH HECK THIS IS THE ROOM
-var room = town; //0 in the end cuxz it is type 0. type 0 means room 
+var room = town;
 // ^ This is the room that the player is currently in
 
 //players and npcs lets go
@@ -323,7 +323,7 @@ function changeRoom(newRoom, objects, playerPosX, playerPosY){
     char.y = playerPosY;
     char.destY = playerPosY;
 
-    objectsInScene = [char, room];
+    objectsInScene = [char, room, townFG];
 
     if(objects != undefined || objects != []){
         objectsInScene = objectsInScene.concat(objects);
@@ -347,7 +347,6 @@ function main() {
   }
 
   char.main();
-  townFG.main();
 
   cameraFollowPlayer();
 }
