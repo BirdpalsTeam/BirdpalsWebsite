@@ -265,16 +265,16 @@ class Camera{
         for(let i = 0; i < objectsInScene.length; i++){
             objectsInScene[i].x = objectsInScene[i].x + (prevX - this.x);
         }
-        char.destX = char.x;
+        char.destX = char.destX + (prevX - this.x);
     }
     followY(){
         let prevY = this.y
-        this.y = char.y - canvas.height/2;
+        this.y = char.y + canvas.height/2;
 
         for(let i = 0; i < objectsInScene.length; i++){
             objectsInScene[i].y = objectsInScene[i].y - (prevY - this.y);
         }
-        char.destY = char.y;
+        char.destY = char.destY - (prevY - this.y);
     }
 }
 
