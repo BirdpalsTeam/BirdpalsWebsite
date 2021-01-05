@@ -323,7 +323,7 @@ function changeRoom(newRoom, objects, playerPosX, playerPosY){
     char.y = playerPosY;
     char.destY = playerPosY;
 
-    objectsInScene = [char, room, townFG];
+    objectsInScene = [char, room];
 
     if(objects != undefined || objects != []){
         objectsInScene = objectsInScene.concat(objects);
