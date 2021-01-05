@@ -290,8 +290,8 @@ var hedge_npc = new NPC(hedgeNPC, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "
 var townRoom = new Image();
 townRoom.src = "GameData/Sprites/rooms/town.png";
 var objs = new RoomObject(townRoom, 498, 372, 192, 216, 96, 190, 1655, 0, 192, 216, 0); //Cake
-var townBG = new Room(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0);
-var townFG = new RoomObject(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 763, 438, 0);
+var town = new Room(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0); //room bg
+var townFG = new RoomObject(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 763, 438, 0); //room fg
 var townObjects = [hedge_npc, objs];
 
 var domeRoom = new Image();
