@@ -52,10 +52,10 @@ button:hover {
 }
 
 .infocard {
-  width: 20%;
+  width: 30%;
   background-color: #d6f5f5;
-  margin-top: 30px;
-  padding: 60px;
+  margin-top: 50px;
+  padding: 50px;
   border-radius: 4px;
   transition-duration: 0.2s;
 }
