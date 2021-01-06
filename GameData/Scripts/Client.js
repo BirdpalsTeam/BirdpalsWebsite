@@ -15,8 +15,8 @@ var townRoom = new Image();
 townRoom.src = "GameData/Sprites/rooms/town.png";
 var objs = new RoomObject(townRoom, 498, 372, 192, 216, 96, 190, 1655, 0, 192, 216, 0); //Cake
 var town = new Room(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0); //room bg
-var townFG = new RoomObject(townRoom, 0, 0, 800, 500, 0, 0, 892, 0, 763, 438, 0); //room fg
-var townObjects = [hedge_npc, objs];
+var townFG = new RoomObject(townRoom, 0, 500, 800, 500, 0, 500, 892, 0, 763, 438, 0); //room fg
+var townObjects = [hedge_npc, objs, townFG];
 
 var domeRoom = new Image();
 domeRoom.src = "GameData/Sprites/rooms/dome.png";
@@ -25,7 +25,7 @@ var domeObjects = [];
 
 var forestRoom = new Image();
 forestRoom.src = "GameData/Sprites/rooms/forest.png";
-var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 776, 234);
+var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 3052, 876);
 var forestObjects = [];
 
 //OH GOD OH HECK THIS IS THE ROOM
@@ -71,8 +71,7 @@ function main() {
   }
 
   char.main();
-  townFG.draw();
-
+  
   cameraFollowPlayer();
 }
 
