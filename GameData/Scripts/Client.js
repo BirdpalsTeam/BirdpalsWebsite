@@ -26,7 +26,7 @@ var domeObjects = [];
 var forestRoom = new Image();
 forestRoom.src = "GameData/Sprites/rooms/forest.png";
 var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 0, 3052, 876, 0);
-var forestFG = new Room(forestRoom, 0, 876, 3200, 1000, 0, 0, 876, 3052, 500, 3052, 876, 0);
+var forestFG = new Room(forestRoom, 0, 876, 3200, 1000, 0, 0, 876, 3052, 0, 3052, 876, 0);
 var forestSS = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 6104, 0, 3052, 876, 0);
 var forestObjects = [forestSS, forestFG];
 
