@@ -23,7 +23,7 @@
       style="border: 5px solid #ffffff"
     ></canvas>
     <center>
-      <form>
+      <form onSubmit="sendMessage(); return false">
       <input
         id="message"
         type="text"
@@ -31,7 +31,7 @@
         autocomplete="off"
         placeholder="Type a Message..."
       />
-      <button id="send" type="button" onClick="sendMessage()">Send</button>
+      <button id="send" type="button" onClick="sendMessage(); return false">Send</button>
       </form>
       <br />
       <br />
