@@ -13,7 +13,8 @@ class GameObject {
     sourceW,
     sourceH,
     type,
-    name
+    name,
+    message
   ) {
     this.img = img;
     this.x = x;
@@ -30,6 +31,7 @@ class GameObject {
 
     this.name = name;
     this.type = type;
+      this.message = message;
   }
 
   draw() {
@@ -51,6 +53,10 @@ class GameObject {
       } else {
         ctx.fillStyle = "black";
         ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2, this.y + this.height/2.5);
+      }
+      
+      if(this.message != undefined || this.message != null){
+        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height/2.5);
       }
     }
   }
@@ -139,7 +145,8 @@ class Character extends GameObject {
     sourceW,
     sourceH,
     type,
-    name
+    name,
+    message
   ) {
     super(
       img,
@@ -155,7 +162,8 @@ class Character extends GameObject {
       sourceW,
       sourceH,
       type,
-      name
+      name,
+      message
     );
 
     this.velX = 0;
@@ -224,6 +232,10 @@ class Character extends GameObject {
     let speed = 1.25;
     this.velX = Math.cos(angle) * speed;
     this.velY = Math.sin(angle) * speed;
+    
+    chatMessage(msg){
+      this.message = msg;
+    }
   }
 }
 
@@ -242,7 +254,8 @@ class NPC extends GameObject {
     sourceW,
     sourceH,
     type,
-    name
+    name,
+    message
   ) {
     super(
       img,
@@ -258,7 +271,8 @@ class NPC extends GameObject {
       sourceW,
       sourceH,
       type,
-      name
+      name,
+      message
     );
   }
 }
