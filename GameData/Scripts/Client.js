@@ -9,23 +9,23 @@ blueBird.src = "GameData/Sprites/characters/bird_blue.png";
 
 var hedgeNPC = new Image();
 hedgeNPC.src = "GameData/Sprites/characters/hedgehog.png";
-var hedge_npc = new NPC(hedgeNPC, 310, 315, 54, 54, 12, 52, 84, 84, 84, 84, 2, "flines"); //basically the same as above, except the type is 2. type 2 means NPCs
+var hedge_npc = new NPC(hedgeNPC, 310, 315, 54, 54, 0, 12, 52, 84, 84, 84, 84, 2, "flines"); //basically the same as above, except the type is 2. type 2 means NPCs
 
 var townRoom = new Image();
 townRoom.src = "GameData/Sprites/rooms/town.png";
-var objs = new RoomObject(townRoom, 498, 372, 192, 216, 96, 190, 1655, 0, 192, 216, 0); //Cake
-var town = new Room(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 892, 512, 0); //room bg
-var townFG = new RoomObject(townRoom, 0, 500, 800, 500, 0, 500, 892, 0, 763, 438, 0); //room fg
+var objs = new RoomObject(townRoom, 498, 372, 192, 216, 0, 96, 190, 1655, 0, 192, 216, 0); //Cake
+var town = new Room(townRoom, 0, 0, 800, 500, 0, 0, 0, 0, 0, 892, 512, 0); //room bg
+var townFG = new RoomObject(townRoom, 0, 500, 800, 500, 0, 0, 500, 892, 0, 763, 438, 0); //room fg
 var townObjects = [hedge_npc, objs, townFG];
 
 var domeRoom = new Image();
 domeRoom.src = "GameData/Sprites/rooms/dome.png";
-var dome = new Room(domeRoom, 0, 0, 800, 500, 0, 0, 0, 0, 579, 365, 0);
+var dome = new Room(domeRoom, 0, 0, 800, 500, 0, 0, 0, 0, 0, 579, 365, 0);
 var domeObjects = [];
 
 var forestRoom = new Image();
 forestRoom.src = "GameData/Sprites/rooms/forest.png";
-var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 3052, 876);
+var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 0, 3052, 876);
 var forestObjects = [];
 
 //OH GOD OH HECK THIS IS THE ROOM
@@ -33,7 +33,7 @@ var room = town;
 // ^ This is the room that the player is currently in
 
 //players and npcs lets go
-var char = new Character(blueBird, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1, "Bird"); //1 before the string cuz it is type 1. type 1 means players, and players have names thats why it has a string, with "Bird" being the player's name
+var char = new Character(blueBird, 409, 380, 62, 72, 0, 31, 67, 144, 0, 144, 172, 1, "Bird"); //1 before the string cuz it is type 1. type 1 means players, and players have names thats why it has a string, with "Bird" being the player's name
 
 var objectsInScene = [char];
 

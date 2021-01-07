@@ -5,6 +5,7 @@ class GameObject {
     y,
     width,
     height,
+    rotation,
     originX,
     originY,
     sourceX,
@@ -32,8 +33,13 @@ class GameObject {
   }
 
   draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.rotation * Math.PI / 180);
+    ctx.translate(-this.x, -this.y);
     ctx.drawImage(this.img, this.sourceX, this.sourceY, this.sourceW, this.sourceH, this.x - this.originX, this.y - this.originY, this.width, this.height);
-    
+    ctx.restore();
+
     if(this.type === 1 || this.type === 2){
       ctx.font = "15px sans-serif";
       
@@ -57,6 +63,7 @@ class Room extends GameObject {
     y,
     width,
     height,
+    rotation,
     originX,
     originY,
     sourceX,
@@ -71,6 +78,7 @@ class Room extends GameObject {
       y,
       width,
       height,
+      rotation,
       originX,
       originY,
       sourceX,
@@ -89,6 +97,7 @@ class RoomObject extends GameObject {
     y,
     width,
     height,
+    rotation,
     originX,
     originY,
     sourceX,
@@ -103,6 +112,7 @@ class RoomObject extends GameObject {
       y,
       width,
       height,
+      rotation,
       originX,
       originY,
       sourceX,
@@ -121,6 +131,7 @@ class Character extends GameObject {
     y,
     width,
     height,
+    rotation,
     originX,
     originY,
     sourceX,
@@ -136,6 +147,7 @@ class Character extends GameObject {
       y,
       width,
       height,
+      rotation,
       originX,
       originY,
       sourceX,
@@ -222,6 +234,7 @@ class NPC extends GameObject {
     y,
     width,
     height,
+    rotation,
     originX,
     originY,
     sourceX,
@@ -237,6 +250,7 @@ class NPC extends GameObject {
       y,
       width,
       height,
+      rotation,
       originX,
       originY,
       sourceX,
