@@ -31,7 +31,7 @@ class GameObject {
 
     this.name = name;
     this.type = type;
-      this.message = message;
+    this.message = message;
   }
 
   draw() {
@@ -55,11 +55,11 @@ class GameObject {
         ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2, this.y + this.height/2.5);
       }
       
-      if(this.message != undefined || this.message != null){
+      if(this.message.length > 0){
         var bubble = new Image();
         bubble.src = "GameData/Sprites/hud/hud.png";
         ctx.drawImage(bubble, this.x, this.y - this.height+15);
-        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height+12);
+        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height*2);
       }
     }
   }
