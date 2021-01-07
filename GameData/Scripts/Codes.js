@@ -20,6 +20,9 @@ function sendMessage(){
 				changeRoom(dome, domeObjects, 563, 400, 0, 0);
 			}
 			break;
+		default:
+			console.log("Bird says: " + messageContents);
+		break;
 	}
 	inputField.value = "";
 }
