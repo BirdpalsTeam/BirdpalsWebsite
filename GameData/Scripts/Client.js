@@ -43,9 +43,9 @@ function changeRoom(newRoom, objects, playerPosX, playerPosY, cameraX, cameraY){
     room = newRoom;
 
     char.x = playerPosX;
-    
+    char.destX = playerPosX;
     char.y = playerPosY;
-    
+    char.destY = playerPosY;
 
     objectsInScene = [char, room];
 
@@ -60,9 +60,8 @@ function changeRoom(newRoom, objects, playerPosX, playerPosY, cameraX, cameraY){
         }
     }
 
-  char.destX = playerPosX;
-  char.destY = playerPosY;
-
+    char.destX += cam.x;
+    char.destY += cam.y;
 }
 
 changeRoom(town, townObjects, 409, 380, 0, 0);

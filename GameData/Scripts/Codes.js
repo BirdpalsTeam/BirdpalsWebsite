@@ -12,7 +12,7 @@ function sendMessage(){
 			break;
 		case "/join forest":
 			if(room != forest){
-				changeRoom(forest, forestObjects, 100, 400, 0, 400 - canvas.height/2);
+				changeRoom(forest, forestObjects, 100, 400, 0, -150);
 			}
 			break;
 		case "/join dome":
