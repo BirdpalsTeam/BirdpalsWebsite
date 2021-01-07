@@ -43,9 +43,9 @@ function changeRoom(newRoom, objects, playerPosX, playerPosY, cameraX, cameraY){
     room = newRoom;
 
     char.x = playerPosX;
-    char.destX = playerPosX;
+    
     char.y = playerPosY;
-    char.destY = playerPosY;
+    
 
     objectsInScene = [char, room];
 
@@ -54,11 +54,15 @@ function changeRoom(newRoom, objects, playerPosX, playerPosY, cameraX, cameraY){
     }
 
     for (let i = 0; i < objectsInScene.length; i++) {
-    if(objectsInScene[i] != undefined){
-        objectsInScene[i].x += cam.x;
-        objectsInScene[i].y += cam.y;
+        if(objectsInScene[i] != undefined){
+            objectsInScene[i].x += cam.x;
+            objectsInScene[i].y += cam.y;
+        }
     }
-  }
+
+  char.destX = playerPosX;
+  char.destY = playerPosY;
+
 }
 
 changeRoom(town, townObjects, 409, 380, 0, 0);
