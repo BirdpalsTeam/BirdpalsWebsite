@@ -25,10 +25,8 @@ var domeObjects = [];
 
 var forestRoom = new Image();
 forestRoom.src = "GameData/Sprites/rooms/forest.png";
-var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 3052, 876, 0);
-var forestFG = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 3052, 0, 3052, 876, 0);
-var forestSS = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 6104, 0, 3052, 876, 0);
-var forestObjects = [forestSS, forestFG];
+var forest = new Room(forestRoom, 0, 0, 3200, 1000, 0, 0, 0, 0, 3052, 876);
+var forestObjects = [];
 
 //OH GOD OH HECK THIS IS THE ROOM
 var room = town;
@@ -39,8 +37,8 @@ var char = new Character(blueBird, 409, 380, 62, 72, 31, 67, 144, 0, 144, 172, 1
 
 var objectsInScene = [char];
 
-function changeRoom(newRoom, objects, playerPosX, playerPosY){
-    cam = new Camera(0, 0);
+function changeRoom(newRoom, objects, playerPosX, playerPosY, cameraX, cameraY){
+    cam = new Camera(cameraX, cameraY);
 
     room = newRoom;
 
@@ -55,9 +53,15 @@ function changeRoom(newRoom, objects, playerPosX, playerPosY){
         objectsInScene = objectsInScene.concat(objects);
     }
 
+    for (let i = 0; i < objectsInScene.length; i++) {
+    if(objectsInScene[i] != undefined){
+        objectsInScene[i].x += cam.x;
+        objectsInScene[i].y += cam.y;
+    }
+  }
 }
 
-changeRoom(town, townObjects, 409, 380);
+changeRoom(town, townObjects, 409, 380, 0, 0);
 
 function main() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
