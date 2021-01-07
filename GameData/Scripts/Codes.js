@@ -21,8 +21,8 @@ function sendMessage(){
 			}
 			break;
 		default:
+			chatMessage();
 			console.log("Bird says: " + messageContents);
-		break;
 	}
 	inputField.value = "";
 }
