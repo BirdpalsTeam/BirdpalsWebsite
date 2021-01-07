@@ -9,7 +9,7 @@ blueBird.src = "GameData/Sprites/characters/bird_blue.png";
 
 var hedgeNPC = new Image();
 hedgeNPC.src = "GameData/Sprites/characters/hedgehog.png";
-var hedge_npc = new NPC(hedgeNPC, 310, 315, 54, 54, 0, 12, 52, 84, 84, 84, 84, 2, "flines"); //basically the same as above, except the type is 2. type 2 means NPCs
+var hedge_npc = new NPC(hedgeNPC, 310, 315, 54, 54, 0, 12, 52, 84, 84, 84, 84, 2, "flines", "sup"); //STRING AFTER "flines" CUZ NPC MESSAGE
 
 var townRoom = new Image();
 townRoom.src = "GameData/Sprites/rooms/town.png";
@@ -35,7 +35,7 @@ var room = town;
 // ^ This is the room that the player is currently in
 
 //players and npcs lets go
-var char = new Character(blueBird, 409, 380, 62, 72, 0, 31, 67, 144, 0, 144, 172, 1, "Bird"); //1 before the string cuz it is type 1. type 1 means players, and players have names thats why it has a string, with "Bird" being the player's name
+var char = new Character(blueBird, 409, 380, 62, 72, 0, 31, 67, 144, 0, 144, 172, 1, "Bird", ""); //IT HAS AN EMPTY STRING IN THE END FOR THE CHAT SYSTEM OK THGANKS
 
 var objectsInScene = [char];
 
