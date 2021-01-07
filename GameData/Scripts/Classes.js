@@ -56,7 +56,10 @@ class GameObject {
       }
       
       if(this.message != undefined || this.message != null){
-        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height/2.5);
+        var bubble = new Image();
+        bubble.src = "GameData/Sprites/hud/hud.png";
+        ctx.drawImage(bubble, this.x, this.y - this.height+15);
+        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height+12);
       }
     }
   }
