@@ -21,4 +21,5 @@ function sendMessage(){
 			}
 			break;
 	}
+	inputField.value = "";
 }
