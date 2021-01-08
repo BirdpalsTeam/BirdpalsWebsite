@@ -118,7 +118,7 @@ canvas.addEventListener(
   false
 );
 
-setInterval(char.chatMessage(" "), 5000);
+setInterval((char.chatMessage(" ")), 3000);
 setInterval(main, 5);
 
 function printObjectsInScene(){
