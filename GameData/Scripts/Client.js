@@ -37,10 +37,6 @@ var room = town;
 //players and npcs lets go
 var char = new Character(blueBird, 409, 380, 62, 72, 0, 31, 67, 144, 0, 144, 172, 1, "Bird", ""); //IT HAS AN EMPTY STRING IN THE END FOR THE CHAT SYSTEM OK THGANKS
 
-var bubble = new Image();
-bubble.src = "GameData/Sprites/hud/hud.png";
-var bubble_image = new HUD(bubble, char.x - ctx.measureText(this.message).width/2, char.y - char.height+18, 0, 0, 0, 0, 0, 0, 0, 262, 94, 0);
-
 var objectsInScene = [char];
 
 function changeRoom(newRoom, objects, playerPosX, playerPosY, cameraX, cameraY){
@@ -118,7 +114,7 @@ canvas.addEventListener(
   false
 );
 
-setInterval((char.chatMessage(" ")), 3000);
+setInterval(char.chatMessage(" "), 3000);
 setInterval(main, 5);
 
 function printObjectsInScene(){
