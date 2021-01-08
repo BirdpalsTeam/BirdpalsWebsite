@@ -56,10 +56,6 @@ class GameObject {
       }
       
       if(this.message.length > 0){
-        var bubble = new Image();
-        bubble.src = "GameData/Sprites/hud/hud.png";
-        var bubble_image = new HUD(bubble, this.x - ctx.measureText(this.message).width/2, this.y - this.height+18, 0, 0, 0, 0, 0, 0, 0, 262, 94, 0);
-        
         bubble_image.draw();
         ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height+18);
       }
@@ -275,6 +271,8 @@ class Character extends GameObject {
    chatMessage(msg){
      this.message = msg;
    }
+  
+  setInterval(chatMessage(" "), 5000);
 }
 
 class NPC extends GameObject {
