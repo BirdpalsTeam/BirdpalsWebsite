@@ -59,10 +59,10 @@ class GameObject {
         var bubble = new Image();
         bubble.src = "GameData/Sprites/hud/hud.png";
         
-        var bubble_image = new HUD(bubble, this.x - ctx.measureText(this.message).width/2, this.y - this.height+8, 262, 94, 0, 0, 0, 0, 0, 262, 94, 0);
+        var bubble_image = new HUD(bubble, this.x - ctx.measureText(this.message).width/2, this.y - this.height+3, 262, 94, 0, 0, 0, 0, 0, 262, 94, 0);
         bubble_image.draw();
         
-        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height+10);
+        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height+5);
       }
     }
   }
