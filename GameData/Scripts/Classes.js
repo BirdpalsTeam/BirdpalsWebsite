@@ -271,8 +271,6 @@ class Character extends GameObject {
    chatMessage(msg){
      this.message = msg;
    }
-  
-  setInterval(function() { if(this.message.length > 0) { this.message = " "; } }, 5000);
 }
 
 class NPC extends GameObject {
