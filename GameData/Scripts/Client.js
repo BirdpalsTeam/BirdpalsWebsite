@@ -4,10 +4,6 @@ var ctx = canvas.getContext("2d");
 
 var cam = new Camera(0, 0);
 
-var bubble = new Image();
-bubble.src = "GameData/Sprites/hud/hud.png";
-var bubble_image = new HUD(bubble, this.x - ctx.measureText(this.message).width/2, this.y - this.height+18, 0, 0, 0, 0, 0, 0, 0, 262, 94, 0);
-
 var blueBird = new Image();
 blueBird.src = "GameData/Sprites/characters/bird_blue.png";
 
@@ -40,6 +36,10 @@ var room = town;
 
 //players and npcs lets go
 var char = new Character(blueBird, 409, 380, 62, 72, 0, 31, 67, 144, 0, 144, 172, 1, "Bird", ""); //IT HAS AN EMPTY STRING IN THE END FOR THE CHAT SYSTEM OK THGANKS
+
+var bubble = new Image();
+bubble.src = "GameData/Sprites/hud/hud.png";
+var bubble_image = new HUD(bubble, char.x - ctx.measureText(this.message).width/2, char.y - char.height+18, 0, 0, 0, 0, 0, 0, 0, 262, 94, 0);
 
 var objectsInScene = [char];
 
@@ -118,6 +118,7 @@ canvas.addEventListener(
   false
 );
 
+setInterval(char.chatMessage(" "), 5000);
 setInterval(main, 5);
 
 function printObjectsInScene(){
