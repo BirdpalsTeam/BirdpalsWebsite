@@ -4,6 +4,10 @@ var ctx = canvas.getContext("2d");
 
 var cam = new Camera(0, 0);
 
+var bubble = new Image();
+bubble.src = "GameData/Sprites/hud/hud.png";
+var bubble_image = new HUD(bubble, this.x - ctx.measureText(this.message).width/2, this.y - this.height+18, 0, 0, 0, 0, 0, 0, 0, 262, 94, 0);
+
 var blueBird = new Image();
 blueBird.src = "GameData/Sprites/characters/bird_blue.png";
 
