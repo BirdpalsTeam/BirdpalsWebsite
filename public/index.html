@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="image/png" href="Website Assets\Logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birdpals</title>
+  </head>
+  <body>
+      <h1>Birdpals</h1>
+      <canvas
+        id="gameCanvas"
+        width="800"
+        height="500"
+        style="border: 5px solid #ffffff"
+      ></canvas>
+      <br />
+      <center><input id="message" type="text" placeholder="Message" />
+      <button id="send">Send</button></center>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+			var socket = io();
+
+            var myId = "???";
+
+			var message = document.getElementById('message');
+			var btn = document.getElementById('send');
+
+			btn.addEventListener('click', function(){
+				socket.emit('chat', {
+					message: message.value
+				});
+			});
+			
+            socket.on('yourId', function(data){
+                myId = data;
+                console.log(data);
+            });
+
+			socket.on('chat', function(data){
+				message.value = data.message;
+			});
+             
+            
+		</script>
+      <script src="GameData/Scripts/Client.js"></script>
+      <script>
+        
+      </script>
+  </body>
+</html>
