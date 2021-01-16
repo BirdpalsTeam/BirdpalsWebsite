@@ -54,7 +54,7 @@ button:hover {
 .infocard {
   width: 30%;
   background-color: #d6f5f5;
-  margin-top: 50px;
+  margin-top: 20px;
   padding: 50px;
   border-radius: 4px;
   transition-duration: 0.2s;
@@ -66,6 +66,25 @@ button:hover {
   font-weight: bold;
 }
 
+.infocard2 {
+  width: 30%;
+  background-color: #d6f5f5;
+  margin-top: 20px;
+  padding: 50px;
+  border-radius: 4px;
+  transition-duration: 0.2s;
+}
+
+.infotext2 {
+  color: black;
+  font-family: "Fredoka One", cursive;
+  font-weight: bold;
+}
+
 .infocard:hover {
+  background-color: #c1dfdf;
+}
+
+.infocard2:hover {
   background-color: #c1dfdf;
 }

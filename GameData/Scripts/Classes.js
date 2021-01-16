@@ -37,32 +37,75 @@ class GameObject {
   draw() {
     ctx.save();
     ctx.translate(this.x, this.y);
-    ctx.rotate(this.rotation * Math.PI / 180);
+    ctx.rotate((this.rotation * Math.PI) / 180);
     ctx.translate(-this.x, -this.y);
-    ctx.drawImage(this.img, this.sourceX, this.sourceY, this.sourceW, this.sourceH, this.x - this.originX, this.y - this.originY, this.width, this.height);
+    ctx.drawImage(
+      this.img,
+      this.sourceX,
+      this.sourceY,
+      this.sourceW,
+      this.sourceH,
+      this.x - this.originX,
+      this.y - this.originY,
+      this.width,
+      this.height
+    );
     ctx.restore();
 
-    if(this.type === 1 || this.type === 2){
+    if (this.type === 1 || this.type === 2) {
       ctx.font = "15px sans-serif";
-      
-      if(this.type === 2){
+
+      if (this.type === 2) {
         ctx.fillStyle = "red";
-        ctx.fillText("(NPC)", this.x - ctx.measureText(this.name).width/2 - 5, this.y + this.height/2.5);
+        ctx.fillText(
+          "(NPC)",
+          this.x - ctx.measureText(this.name).width / 2 - 5,
+          this.y + this.height / 2.5
+        );
         ctx.fillStyle = "black";
-        ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2 + ctx.measureText("(NPC)").width - 3, this.y + this.height/2.5);
+        ctx.fillText(
+          this.name,
+          this.x -
+            ctx.measureText(this.name).width / 2 +
+            ctx.measureText("(NPC)").width -
+            3,
+          this.y + this.height / 2.5
+        );
       } else {
         ctx.fillStyle = "black";
-        ctx.fillText(this.name, this.x - ctx.measureText(this.name).width/2, this.y + this.height/2.5);
+        ctx.fillText(
+          this.name,
+          this.x - ctx.measureText(this.name).width / 2,
+          this.y + this.height / 2.5
+        );
       }
-      
-      if(this.message.length > 0){
+
+      if (this.message.length > 0) {
         var bubble = new Image();
         bubble.src = "GameData/Sprites/hud/hud.png";
-        
-        var bubble_image = new HUD(bubble, this.x - ctx.measureText(this.message).width/2, this.y - this.height+2, 262, 94, 0, 0, 0, 0, 0, 262, 94, 0);
+
+        var bubble_image = new HUD(
+          bubble,
+          this.x - ctx.measureText(this.message).width / 2,
+          this.y - this.height + 2,
+          262,
+          94,
+          0,
+          0,
+          0,
+          0,
+          0,
+          262,
+          94,
+          0
+        );
         bubble_image.draw();
-        
-        ctx.fillText(this.message, this.x - ctx.measureText(this.message).width/2, this.y - this.height);
+
+        ctx.fillText(
+          this.message,
+          this.x - ctx.measureText(this.message).width / 2,
+          this.y - this.height
+        );
       }
     }
   }
@@ -82,7 +125,7 @@ class Room extends GameObject {
     sourceY,
     sourceW,
     sourceH,
-    type,
+    type
   ) {
     super(
       img,
@@ -97,7 +140,7 @@ class Room extends GameObject {
       sourceY,
       sourceW,
       sourceH,
-      type,
+      type
     );
   }
 }
@@ -231,32 +274,32 @@ class Character extends GameObject {
       this.x += this.velX;
       this.y += this.velY;
       this.isMoving = true;
-    }else{
-        this.isMoving = false;
+    } else {
+      this.isMoving = false;
     }
   }
 
   move(destX, destY) {
-    if (destX < this.x){
+    if (destX < this.x) {
       this.sourceX = 0;
       this.sourceY = 172;
-    } else if (destX > this.x){
+    } else if (destX > this.x) {
       this.sourceX = 144;
       this.sourceY = 172;
     }
 
-    if (destY < this.y){
+    if (destY < this.y) {
       this.sourceX = 0;
       this.sourceY = 0;
-    } else if (destY > this.y){
+    } else if (destY > this.y) {
       this.sourceX = 144;
       this.sourceY = 0;
     }
 
-    if(destX < this.x - 15 && destY > this.y){
+    if (destX < this.x - 15 && destY > this.y) {
       this.sourceX = 0;
       this.sourceY = 172;
-    } else if(destX > this.x + 15 && destY > this.y){
+    } else if (destX > this.x + 15 && destY > this.y) {
       this.sourceX = 144;
       this.sourceY = 172;
     }
@@ -273,9 +316,11 @@ class Character extends GameObject {
     this.velX = Math.cos(angle) * speed;
     this.velY = Math.sin(angle) * speed;
   }
-   chatMessage(msg){
-     this.message = msg;
-   }
+
+  chatMessage(msg) {
+    this.message = msg;
+    ctx.fillStyle = "red";
+  }
 }
 
 class NPC extends GameObject {
@@ -316,28 +361,28 @@ class NPC extends GameObject {
   }
 }
 
-class Camera{
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
-    }
-    
-    followX(){
-        let prevX = this.x;
-        this.x = char.x + this.x - canvas.width/2;
+class Camera {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 
-        for(let i = 0; i < objectsInScene.length; i++){
-            objectsInScene[i].x = objectsInScene[i].x + (prevX - this.x);
-        }
-        char.destX = char.destX + (prevX - this.x);
-    }
-    followY(){
-        let prevY = this.y
-        this.y = char.y + this.y - canvas.height/2;
+  followX() {
+    let prevX = this.x;
+    this.x = char.x + this.x - canvas.width / 2;
 
-        for(let i = 0; i < objectsInScene.length; i++){
-            objectsInScene[i].y = objectsInScene[i].y + (prevY - this.y);
-        }
-        char.destY = char.destY + (prevY - this.y);
+    for (let i = 0; i < objectsInScene.length; i++) {
+      objectsInScene[i].x = objectsInScene[i].x + (prevX - this.x);
     }
+    char.destX = char.destX + (prevX - this.x);
+  }
+  followY() {
+    let prevY = this.y;
+    this.y = char.y + this.y - canvas.height / 2;
+
+    for (let i = 0; i < objectsInScene.length; i++) {
+      objectsInScene[i].y = objectsInScene[i].y + (prevY - this.y);
+    }
+    char.destY = char.destY + (prevY - this.y);
+  }
 }
