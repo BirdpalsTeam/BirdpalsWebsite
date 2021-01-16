@@ -20,5 +20,4 @@ function sendMessage() {
       console.log("Bird says: " + messageContents);
   }
   inputField.value = "";
-  setTimeout(function(){char.chatMessage(" ")}, 5000);
 }

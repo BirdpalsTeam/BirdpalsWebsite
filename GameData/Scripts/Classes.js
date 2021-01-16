@@ -81,13 +81,31 @@ class GameObject {
       }
 
       if (this.message.length > 0) {
-        ctx.fillStyle = "#131052";
+        var bubble = new Image();
+        bubble.src = "GameData/Sprites/hud/hud.png";
+
+        var bubble_image = new HUD(
+          bubble,
+          this.x - ctx.measureText(this.message).width / 2,
+          this.y - this.height + 2,
+          262,
+          94,
+          0,
+          0,
+          0,
+          0,
+          0,
+          262,
+          94,
+          0
+        );
+        bubble_image.draw();
+
         ctx.fillText(
           this.message,
           this.x - ctx.measureText(this.message).width / 2,
           this.y - this.height
         );
-        ctx.fillStyle = "black";
       }
     }
   }
@@ -294,7 +312,7 @@ class Character extends GameObject {
 
     let angle = Math.atan2(dy, dx);
 
-    let speed = 1.25;
+    let speed = 30;
     this.velX = Math.cos(angle) * speed;
     this.velY = Math.sin(angle) * speed;
   }
