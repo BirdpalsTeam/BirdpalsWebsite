@@ -231,7 +231,7 @@ canvas.addEventListener(
 );
 
 function triggers(){
-    return;
+
 }
 
 setInterval(main, 5);

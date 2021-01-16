@@ -262,6 +262,7 @@ class Character extends GameObject {
     this.clickPosY = this.y + this.height - 5;
 
     this.isMoving = false;
+    this.smishMoving = false;
   }
 
   main() {
@@ -271,10 +272,12 @@ class Character extends GameObject {
         this.y >= this.destY - 1 &&
         this.y <= this.destY + 1) == false
     ) {
+      this.isMoving = true;
       this.x += this.velX;
       this.y += this.velY;
     } else{
         this.stoppedMoving();
+        this.isMoving = false;
     }
   }
 
@@ -322,9 +325,9 @@ class Character extends GameObject {
   }
 
   stoppedMoving(){
-    if(this.isMoving){
+    if(this.smishMoving){
         triggers();
-        isMoving = false;
+        this.smishMoving = false;
     }
   }
 }
@@ -391,4 +394,10 @@ class Camera {
     }
     char.destY = char.destY + (prevY - this.y);
   }
+}
+
+class Trigger{
+    constructor(x, y, width, height){
+
+    }
 }
