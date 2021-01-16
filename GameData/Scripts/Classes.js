@@ -1,56 +1,3 @@
-class HUD extends GameObject {
-  constructor(
-    img,
-    x,
-    y,
-    width,
-    height,
-    rotation,
-    originX,
-    originY,
-    sourceX,
-    sourceY,
-    sourceW,
-    sourceH,
-    type
-  ) {
-    super(
-      img,
-      x,
-      y,
-      width,
-      height,
-      rotation,
-      originX,
-      originY,
-      sourceX,
-      sourceY,
-      sourceW,
-      sourceH,
-      type
-    );
-  }
-}
-
-var bubble = new Image();
-bubble.src = "GameData/Sprites/hud/hud.png";
-
-var bubble_image = new HUD(
-   bubble,
-   this.x - ctx.measureText(this.message).width*2,
-   this.y - this.height + 45,
-   131,
-   47,
-   0,
-   0,
-   0,
-   0,
-   0,
-   262,
-   94,
-   0
-);
-
 class GameObject {
   constructor(
     img,
@@ -134,6 +81,21 @@ class GameObject {
       }
 
       if (this.message != "" && this.message.length > 0) {
+        var bubble_image = new HUD(
+           bubble,
+           this.x - ctx.measureText(this.message).width*2,
+           this.y - this.height + 45,
+           131,
+           47,
+           0,
+           0,
+           0,
+           0,
+           0,
+           262,
+           94,
+           0
+        );
         bubble_image.draw();
 
         ctx.fillText(
@@ -145,6 +107,43 @@ class GameObject {
     }
   }
 }
+
+class HUD extends GameObject {
+  constructor(
+    img,
+    x,
+    y,
+    width,
+    height,
+    rotation,
+    originX,
+    originY,
+    sourceX,
+    sourceY,
+    sourceW,
+    sourceH,
+    type
+  ) {
+    super(
+      img,
+      x,
+      y,
+      width,
+      height,
+      rotation,
+      originX,
+      originY,
+      sourceX,
+      sourceY,
+      sourceW,
+      sourceH,
+      type
+    );
+  }
+}
+
+var bubble = new Image();
+bubble.src = "GameData/Sprites/hud/hud.png";
 
 class Room extends GameObject {
   constructor(
