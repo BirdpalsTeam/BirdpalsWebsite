@@ -80,14 +80,14 @@ class GameObject {
         );
       }
 
-      if (this.message != null || this.message != " ") {
+      if (this.message.length > 0 && this.message != " " && this.type = 1) {
         var bubble = new Image();
         bubble.src = "GameData/Sprites/hud/hud.png";
 
         var bubble_image = new HUD(
           bubble,
           this.x - ctx.measureText(this.message).width*2,
-          this.y - this.height + 20,
+          this.y - this.height + 45,
           131,
           47,
           0,
