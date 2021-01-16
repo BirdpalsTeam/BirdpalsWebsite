@@ -84,7 +84,7 @@ class GameObject {
         var bubble_image = new HUD(
            bubble,
            this.x - 30,
-           this.y - this.height - 30,
+           this.y - this.height - 50,
            131,
            47,
            0,
