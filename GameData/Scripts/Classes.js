@@ -101,7 +101,7 @@ class GameObject {
         ctx.fillText(
           this.message,
           this.x - ctx.measureText(this.message).width / 2,
-          this.y - this.height - 16,
+          this.y - this.height - 13,
         );
       }
     }
