@@ -81,7 +81,7 @@ class GameObject {
       }
 
       if (this.message.length > 0) {
-        ctx.fillStyle = "#211d91";
+        ctx.fillStyle = "#131052";
         ctx.fillText(
           this.message,
           this.x - ctx.measureText(this.message).width / 2,
