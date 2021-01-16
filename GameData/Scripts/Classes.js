@@ -273,9 +273,8 @@ class Character extends GameObject {
     ) {
       this.x += this.velX;
       this.y += this.velY;
-      this.isMoving = true;
-    } else {
-      this.isMoving = false;
+    } else{
+        this.stoppedMoving();
     }
   }
 
@@ -320,6 +319,13 @@ class Character extends GameObject {
   chatMessage(msg) {
     this.message = msg;
     ctx.fillStyle = "red";
+  }
+
+  stoppedMoving(){
+    if(this.isMoving){
+        triggers();
+        isMoving = false;
+    }
   }
 }
 
