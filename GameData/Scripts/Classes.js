@@ -83,7 +83,7 @@ class GameObject {
       if (this.message != " " && this.message.length > 0 || this.message != "" && this.message.length > 0) {
         var bubble_image = new HUD(
            bubble,
-           this.x - ctx.measureText(this.message).width*2,
+           this.x - 30,
            this.y - this.height - 30,
            131,
            47,
