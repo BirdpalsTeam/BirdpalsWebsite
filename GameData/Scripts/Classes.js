@@ -80,7 +80,7 @@ class GameObject {
         );
       }
 
-      if (this.message != " " && this.type = 1 && this.message.length > 0) {
+      if (this.message != " " || this.message != "") {
         var bubble = new Image();
         bubble.src = "GameData/Sprites/hud/hud.png";
 
