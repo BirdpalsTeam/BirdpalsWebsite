@@ -230,7 +230,6 @@ canvas.addEventListener(
   false
 );
 
-setTimeout(char.chatMessage(" "), 3000);
 setInterval(main, 5);
 
 function printObjectsInScene() {
