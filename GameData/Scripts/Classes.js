@@ -271,7 +271,6 @@ class Character extends GameObject {
         this.y >= this.destY - 1 &&
         this.y <= this.destY + 1) == false
     ) {
-      this.stoppedMoving();
       this.x += this.velX;
       this.y += this.velY;
       this.isMoving = true;
@@ -313,7 +312,7 @@ class Character extends GameObject {
 
     let angle = Math.atan2(dy, dx);
 
-    let speed = 1.25;
+    let speed = 2;
     this.velX = Math.cos(angle) * speed;
     this.velY = Math.sin(angle) * speed;
   }
@@ -321,13 +320,6 @@ class Character extends GameObject {
   chatMessage(msg) {
     this.message = msg;
     ctx.fillStyle = "red";
-  }
-
-  stoppedMoving(){
-    if(this.isMoving){
-        triggers();
-        isMoving = false;
-    }
   }
 }
 
