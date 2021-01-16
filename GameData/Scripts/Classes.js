@@ -99,7 +99,7 @@ class GameObject {
           94,
           0
         );
-        bubble_image.draw();
+        //bubble_image.draw();
 
         ctx.fillText(
           this.message,
