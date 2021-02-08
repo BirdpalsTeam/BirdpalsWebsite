@@ -106,6 +106,11 @@ class GameObject {
       }
     }
   }
+
+  chatMessage(msg) {
+    this.message = msg;
+    ctx.fillStyle = "red";
+  }
 }
 
 class HUD extends GameObject {
@@ -317,11 +322,6 @@ class Character extends GameObject {
     let speed = 1.25;
     this.velX = Math.cos(angle) * speed;
     this.velY = Math.sin(angle) * speed;
-  }
-
-  chatMessage(msg) {
-    this.message = msg;
-    ctx.fillStyle = "red";
   }
 
   stoppedMoving(){
