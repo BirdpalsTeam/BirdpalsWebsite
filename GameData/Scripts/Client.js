@@ -61,10 +61,10 @@ var townFG = new RoomObject(
 ); //room fg
 var townObjects = [hedge_npc, objs, townFG];
 
-var domeRoom = new Image();
+/* var domeRoom = new Image();
 domeRoom.src = "GameData/Sprites/rooms/dome.png";
 var dome = new Room(domeRoom, 0, 0, 800, 500, 0, 0, 0, 0, 0, 579, 365, 0);
-var domeObjects = [];
+var domeObjects = []; if youre reading this... good job you found a secret scrapped room of the game */
 
 var forestRoom = new Image();
 forestRoom.src = "GameData/Sprites/rooms/forest.png";
@@ -137,6 +137,12 @@ var char = new Character(
   "Bird",
   ""
 ); //IT HAS AN EMPTY STRING IN THE END FOR THE CHAT SYSTEM OK THGANKS
+
+char.name = prompt("Choose a name for your bird:")
+
+if(char.name === " " || char.name === "" || char.name === undefined || char.name === null){
+  char.name = "Bird";
+}
 
 var objectsInScene = [char];
 
