@@ -15,10 +15,16 @@ function sendMessage() {
         changeRoom(forest, forestObjects, 100, 400, 0, -150);
       }
       break;
+
+    /*case "/hedgehog":
+      hedge_npc.chatMessage("hedgehog");
+      console.log("(NPC) flines says: hedgehog");
+    break;*/
+
     default:
       char.chatMessage(messageContents);
       console.log("Bird says: " + messageContents);
   }
   inputField.value = "";
-  setTimeout(function(){char.chatMessage("")}, 5000);
+  setTimeout(function(){char.chatMessage(""); hedge_npc.chatMessage("")}, 5000);
 }
