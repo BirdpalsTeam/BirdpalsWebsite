@@ -245,3 +245,29 @@ setInterval(main, 5);
 function printObjectsInScene() {
   console.log(objectsInScene);
 }
+
+toyventurey = document.getElementById("toyventurey"),
+
+toyventurey.volume = .5;
+
+function playSound(sound, action = "restart") {
+  switch (action) {
+    case "restart":
+      sound.currentTime = 0;
+      sound.play();
+      break;
+    case "play":
+    case "unpause":
+      audio[sound].play();
+      break;
+    case "pause":
+      audio[sound].pause();
+      break;
+    case "stop":
+      audio[sound].pause();
+      audio[sound].currentTime = 0;
+      break;
+  }
+}
+
+playSound(toyventurey);
