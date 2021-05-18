@@ -268,16 +268,25 @@ class Character extends GameObject {
 
     this.isMoving = false;
     this.smishMoving = false;
+    
+    this.angle=0;
   }
 
   main() {
-    this.velX *= timeScale;
-    this.velY *= timeScale;
+    if(this.isMoving){
+      this.velX = Math.cos(this.angle) * this.speed * timeScale;
+      this.velY = Math.sin(this.angle) * this.speed * timeScale;
+    }
+    else{
+      this.velY = 0;
+      this.velX = 0;
+    }
+
     if (
-      (this.x >= this.destX - 1 &&
-        this.x <= this.destX + 1 &&
-        this.y >= this.destY - 1 &&
-        this.y <= this.destY + 1) == false
+      (this.x >= this.destX - this.velX - 1 &&
+        this.x <= this.destX + this.velX + 10 &&
+        this.y >= this.destY - this.velY - 1 &&
+        this.y <= this.destY + this.velY + 10) == false
     ) {
       this.isMoving = true;
       this.x += this.velX;
@@ -319,11 +328,11 @@ class Character extends GameObject {
     let dx = destX - this.x;
     let dy = destY - this.y;
 
-    let angle = Math.atan2(dy, dx);
+    this.angle = Math.atan2(dy, dx);
 
-    let speed = 1.25;
-    this.velX = Math.cos(angle) * speed;
-    this.velY = Math.sin(angle) * speed;
+    this.speed = 1.25;
+    this.velX = Math.cos(this.angle) * this.speed * timeScale;
+    this.velY = Math.sin(this.angle) * this.speed * timeScale;
   }
 
   stoppedMoving(){

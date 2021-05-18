@@ -184,12 +184,13 @@ function changeRoom(
 
 changeRoom(town, townObjects, 409, 380, 0, 0);
 
+let lastCalledTime = Date.now();
+
 function getFPS() {
 	if (lastCalledTime) {
 		delta = (Date.now() - lastCalledTime)/1000;
 		let fps = 1/delta;
-		timeScale = fps > 10 ? fps/90 : 10/90;
-		displayFPS(fps);
+		timeScale = fps > 10 ? fps/30 : 10/30;
 	}
 	lastCalledTime = Date.now();
 }
@@ -212,6 +213,8 @@ function main() {
   getFPS();
 
   cameraFollowPlayer();
+
+  requestAnimationFrame(main);
 }
 
 function cameraFollowPlayer() {
@@ -254,7 +257,7 @@ function triggers(){
 
 }
 
-setInterval(main, 5);
+main();
 
 function printObjectsInScene() {
   console.log(objectsInScene);
