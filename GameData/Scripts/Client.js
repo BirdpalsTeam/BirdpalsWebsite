@@ -1,6 +1,8 @@
 var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
 
+let timeScale = 1;
+
 var cam = new Camera(0, 0);
 
 var blueBird = new Image();
@@ -182,6 +184,16 @@ function changeRoom(
 
 changeRoom(town, townObjects, 409, 380, 0, 0);
 
+function getFPS() {
+	if (lastCalledTime) {
+		delta = (Date.now() - lastCalledTime)/1000;
+		let fps = 1/delta;
+		timeScale = fps > 10 ? fps/90 : 10/90;
+		displayFPS(fps);
+	}
+	lastCalledTime = Date.now();
+}
+
 function main() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -196,6 +208,8 @@ function main() {
   }
 
   char.main();
+
+  getFPS();
 
   cameraFollowPlayer();
 }

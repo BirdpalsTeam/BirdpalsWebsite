@@ -271,6 +271,8 @@ class Character extends GameObject {
   }
 
   main() {
+    this.velX *= timeScale;
+    this.velY *= timeScale;
     if (
       (this.x >= this.destX - 1 &&
         this.x <= this.destX + 1 &&
